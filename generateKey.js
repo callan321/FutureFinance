@@ -7,8 +7,8 @@ function generateKey() {
 
     const keyData = JSON.stringify({ key: keyHex }, null, 2);
 
-    fs.writeFileSync('static/encryption_key.json', keyData, 'utf8');
-    console.log('Encryption key generated and saved to static/encryption_key.json');
+    fs.writeFileSync('key/encryption_key.json', keyData, 'utf8');
+    console.log('Encryption key generated and saved to key/encryption_key.json');
 }
 
 generateKey();

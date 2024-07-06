@@ -3,6 +3,9 @@ let iv; // Store the IV here
 
 async function fetchKey() {
     const response = await fetch('/static/encryption_key.json');
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
     const keyData = await response.json();
     key = hexToBytes(keyData.key);
 }
