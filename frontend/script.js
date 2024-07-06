@@ -1,93 +1,59 @@
-let key;
-let iv;
+import { encryptMessage, decryptMessage } from './encryption.js';
 
-async function encryptMessage() {
-    const plaintext = document.getElementById('plaintext').value.trim(); // Get plaintext from textarea
+async function handleEncryptMessage() {
+    const plaintextElement = document.getElementById('plaintext');
+    const encryptedTextElement = document.getElementById('encryptedText');
+    const ivElement = document.getElementById('iv');
+    const decryptedTextElement = document.getElementById('decryptedText');
+    const resultsElement = document.getElementById('results');
+
+    if (!plaintextElement || !encryptedTextElement || !ivElement || !decryptedTextElement || !resultsElement) {
+        console.error('One or more elements are missing in the DOM');
+        return;
+    }
+
+    const plaintext = plaintextElement.value.trim();
 
     if (!plaintext) {
         alert("Please enter a message to encrypt.");
         return;
     }
 
-    // Generate random 256-bit key
-    key = crypto.getRandomValues(new Uint8Array(32));
+    const { encrypted, iv } = await encryptMessage(plaintext);
 
-    // Convert plaintext to Uint8Array
-    const encoder = new TextEncoder();
-    const data = encoder.encode(plaintext);
+    encryptedTextElement.textContent = encrypted;
+    ivElement.textContent = iv;
 
-    // Generate random 16-byte IV
-    iv = crypto.getRandomValues(new Uint8Array(16));
+    const decryptedText = await decryptMessage(encrypted, iv);
+    decryptedTextElement.textContent = decryptedText;
 
-    // Encrypt using AES-CBC with PKCS7 padding
-    const encrypted = await encryptAES(data, key, iv);
-
-    // Display encrypted message
-    const encryptedHex = bytesToHex(encrypted);
-    document.getElementById('encryptedText').textContent = encryptedHex;
-
-    // Decrypt and display decrypted message
-    const decrypted = await decryptAES(encrypted, key, iv);
-    const decoder = new TextDecoder();
-    const decryptedText = decoder.decode(decrypted);
-    document.getElementById('decryptedText').textContent = decryptedText;
-
-    // Show results section
-    document.getElementById('results').style.display = 'block';
+    resultsElement.style.display = 'block';
 }
 
-async function decryptMessage() {
-    const encryptedHex = document.getElementById('encryptedText').textContent.trim();
+async function handleDecryptMessage() {
+    const encryptedTextElement = document.getElementById('encryptedText');
+    const ivElement = document.getElementById('iv');
+    const decryptedTextElement = document.getElementById('decryptedText');
+    const decryptedSectionElement = document.getElementById('decryptedSection');
 
-    if (!encryptedHex) {
+    if (!encryptedTextElement || !ivElement || !decryptedTextElement || !decryptedSectionElement) {
+        console.error('One or more elements are missing in the DOM');
+        return;
+    }
+
+    const encryptedHex = encryptedTextElement.textContent.trim();
+    const ivHex = ivElement.textContent.trim();
+
+    if (!encryptedHex || !ivHex) {
         alert("Please encrypt a message first.");
         return;
     }
 
-    if (!key || !iv) {
-        alert("Encryption key or IV not found. Encrypt a message first.");
-        return;
-    }
-
-    // Convert encrypted message from hex string to Uint8Array
-    const encrypted = hexToBytes(encryptedHex);
-
-    // Decrypt using AES-CBC with PKCS7 padding
-    const decrypted = await decryptAES(encrypted, key, iv);
-
-    // Convert decrypted Uint8Array to string
-    const decoder = new TextDecoder();
-    const plaintext = decoder.decode(decrypted);
-
-    // Display decrypted message
-    document.getElementById('decryptedText').textContent = plaintext;
-
-    // Show decrypted section (in case it was hidden)
-    document.getElementById('decryptedSection').style.display = 'block';
+    const plaintext = await decryptMessage(encryptedHex, ivHex);
+    decryptedTextElement.textContent = plaintext;
+    decryptedSectionElement.style.display = 'block';
 }
 
-async function encryptAES(data, key, iv) {
-    const algorithm = { name: 'AES-CBC', iv: iv };
-    const cryptoKey = await crypto.subtle.importKey('raw', key, algorithm, false, ['encrypt']);
-    const encrypted = await crypto.subtle.encrypt(algorithm, cryptoKey, data);
-    return new Uint8Array(encrypted);
-}
-
-async function decryptAES(encrypted, key, iv) {
-    const algorithm = { name: 'AES-CBC', iv: iv };
-    const cryptoKey = await crypto.subtle.importKey('raw', key, algorithm, false, ['decrypt']);
-    const decrypted = await crypto.subtle.decrypt(algorithm, cryptoKey, encrypted);
-    return new Uint8Array(decrypted);
-}
-
-function bytesToHex(bytes) {
-    return Array.prototype.map.call(bytes, byte => ('0' + (byte & 0xFF).toString(16)).slice(-2)).join('');
-}
-
-function hexToBytes(hex) {
-    const bytes = [];
-    for (let i = 0; i < hex.length; i += 2) {
-        bytes.push(parseInt(hex.substr(i, 2), 16));
-    }
-    return new Uint8Array(bytes);
-}
+// Ensure the functions are available to be called from the HTML
+window.encryptMessage = handleEncryptMessage;
+window.decryptMessage = handleDecryptMessage;
