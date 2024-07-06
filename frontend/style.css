@@ -1,0 +1,135 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideDown 1s ease;
+    margin-bottom: 20px;
+}
+
+header .logo {
+    margin-right: 20px;
+}
+
+header h1 {
+    color: #DA1710;
+    font-size: 1.5em;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease;
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+    color: #DA1710; /* Red */
+}
+
+/* Form and input styles */
+label {
+    display: block;
+    font-weight: bold;
+    color: #DA1710; /* Red */
+    margin-bottom: 5px;
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #DA1710; /* Red */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff3333; /* Lighter shade of red */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Results section styles */
+#results {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+#results h3 {
+    color: #DA1710; /* Red */
+}
+
+#results div {
+    margin-bottom: 15px;
+}
+
+#encryptedText, #decryptedText {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#decryptedSection {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

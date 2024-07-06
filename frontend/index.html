@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AES Encryption Demo</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <svg width="40" height="28" viewBox="0 0 69 28" xmlns="http://www.w3.org/2000/svg" class="logo">
+                <path d="M24.4 25L17.6 4.1C16.7 0.9 15 0 12.6 0H0c1 0.4 1.6 2.9 1.6 2.9l6.1 21c0.7 2.6 2.9 4 5.4 4h13.3C25.4 27.8 24.4 25 24.4 25" fill="#DA1710"/>
+                <path d="M44.6 25l6.8-20.9C52.3 0.9 54 0 56.4 0H69c-1 0.4-1.6 2.9-1.6 2.9l-6.1 21c-0.7 2.6-2.9 4-5.4 4H42.6C43.6 27.8 44.6 25 44.6 25" fill="#DA1710"/>
+                <rect x="27" width="15" height="28" fill="#DA1710"/>
+            </svg>
+        </div>
+        <h1>AES Encryption Demo</h1>
+    </header>
+    <div class="container">
+        <div>
+            <label for="plaintext">Enter a message:</label><br>
+            <textarea id="plaintext" rows="4" cols="50"></textarea><br>
+            <button onclick="encryptMessage()">Encrypt</button>
+            <button onclick="decryptMessage()">Decrypt</button>
+        </div>
+        <div id="results" style="display: none;">
+            <h3>Results:</h3>
+            <div>
+                <h4>Encrypted Message:</h4>
+                <p><span id="encryptedText"></span></p>
+            </div>
+            <div id="decryptedSection" style="display: none;">
+                <h4>Decrypted Message:</h4>
+                <p><span id="decryptedText"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}" defer></script>
+</body>
+</html>
