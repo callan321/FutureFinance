@@ -20,7 +20,7 @@ header {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: slideDown 1s ease;
+    animation: slideDown 2s ease;
     margin-bottom: 20px;
 }
 
@@ -33,6 +33,27 @@ header h1 {
     font-size: 1.5em;
 }
 
+h2 {
+    color: #DA1710;
+    font-size: 1.125em;
+    margin-left: 0.75rem; 
+}
+
+h3 {
+    color: #DA1710; 
+}
+
+h4 {
+    margin-bottom: 0.5rem; 
+}
+
+hr {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
 /* Container styles */
 .container {
     max-width: 800px;
@@ -41,20 +62,23 @@ header h1 {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease;
+    animation: fadeIn 2s ease;
 }
 
-/* Heading styles */
-h1, h2, h3, h4, h5, h6 {
-    color: #DA1710; /* Red */
-}
 
 /* Form and input styles */
 label {
     display: block;
     font-weight: bold;
-    color: #DA1710; /* Red */
-    margin-bottom: 5px;
+    color: #DA1710; 
+    margin-bottom: 20px;
+}
+
+select {
+    margin-bottom: 15px;
+    display: block;
+    font-size: 16px; 
+    padding: 10px; 
 }
 
 textarea, input[type="text"] {
@@ -89,14 +113,15 @@ button:active {
 /* Results section styles */
 #results {
     margin-top: 20px;
-    padding: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 6px;
     background-color: #f0f0f0;
     border-radius: 8px;
 }
 
-#results h3 {
-    color: #DA1710; /* Red */
-}
+
 
 #results div {
     margin-bottom: 15px;
@@ -111,6 +136,56 @@ button:active {
 #decryptedSection {
     border-top: 1px solid #ccc;
     padding-top: 10px;
+}
+
+/* Message List styles */
+#messagesList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#messagesList li {
+    background-color: #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideDownMessage 0.5s ease;
+    transition: transform 0.3s ease;
+}
+
+#messagesList .message-header {
+    font-weight: bold;
+    color: #DA1710;
+    margin-bottom: 5px;
+}
+
+#messagesList .message-content {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#messagesList .message-content.encrypted {
+    color: #555;
+}
+
+#messagesList .message-content.decrypted {
+    color: #333;
+}
+
+/* Slide-down animation */
+@keyframes slideDownMessage {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Animations */
