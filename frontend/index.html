@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,30 +38,29 @@
         ><br />
 
         <label for="receiver">Recipient:</label>
-        <select id="receiver" >
+        <select id="receiver">
           <!-- Options for receiver will be populated here --></select
         ><br />
 
         <label for="plaintext">Enter a message:</label><br />
         <textarea id="plaintext" rows="4" cols="50"></textarea><br />
         <button onclick="encryptMessage()">Encrypt and Send</button>
-        <button onclick="decryptMessage()">Decrypt</button>
         <button onclick="getAllMessages()">Get All Messages</button>
       </div>
       <div id="results" style="display: none">
         <div>
+          <h4>Original Message:</h4>
+          <p><span id="decryptedText"></span></p>
+        </div>
+        <hr />
+        <div>
           <h4>Encrypted Message:</h4>
           <p><span id="encryptedText"></span></p>
-        </div>
-        <div id="decryptedSection" style="display: none">
-          <h4>Decrypted Message:</h4>
-          <p><span id="decryptedText"></span></p>
         </div>
         <p id="iv" style="display: none"></p>
       </div>
       <div id="allMessages" style="display: none">
-        <hr />
-        <h2>Messages:</h2>
+        <h2>All Messages from Database:</h2>
         <hr />
         <ul id="messagesList"></ul>
       </div>
@@ -73,21 +72,5 @@
       value="{{ csrf_token }}"
     />
     <script type="module" src="{% static 'script.js' %}" defer></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", async () => {
-        const response = await fetch("/api/users/");
-        const users = await response.json();
-        const senderSelect = document.getElementById("sender");
-        const receiverSelect = document.getElementById("receiver");
-
-        users.forEach((user) => {
-          const option = document.createElement("option");
-          option.value = user.id;
-          option.textContent = user.username;
-          senderSelect.appendChild(option.cloneNode(true));
-          receiverSelect.appendChild(option);
-        });
-      });
-    </script>
   </body>
 </html>

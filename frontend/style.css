@@ -1,210 +1,221 @@
 /* Reset default browser styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Body styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+  font-family: "Arial", sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
 }
 
 /* Header styles */
 header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: slideDown 2s ease;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideDown 2s ease;
+  margin-bottom: 20px;
 }
 
 header .logo {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 header h1 {
-    color: #DA1710;
-    font-size: 1.5em;
+  color: #da1710;
+  font-size: 1.5em;
 }
 
 h2 {
-    color: #DA1710;
-    font-size: 1.125em;
-    margin-left: 0.75rem; 
+  color: #da1710;
+  font-size: 1.125em;
+  margin-left: 0.75rem;
 }
 
 h3 {
-    color: #DA1710; 
+  color: #da1710;
 }
 
 h4 {
-    margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
 }
 
 hr {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 /* Container styles */
 .container {
-    max-width: 800px;
-    margin: 80px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 2s ease;
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 2s ease;
 }
-
 
 /* Form and input styles */
 label {
-    display: block;
-    font-weight: bold;
-    color: #DA1710; 
-    margin-bottom: 20px;
+  display: block;
+  font-weight: bold;
+  color: #da1710;
+  margin-bottom: 20px;
 }
 
 select {
-    margin-bottom: 15px;
-    display: block;
-    font-size: 16px; 
-    padding: 10px; 
+  margin-bottom: 15px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
 }
 
-textarea, input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 button {
-    background-color: #DA1710; /* Red */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: #da1710; /* Red */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 button:hover {
-    background-color: #ff3333; /* Lighter shade of red */
-    transform: scale(1.05);
+  background-color: #ff3333; /* Lighter shade of red */
+  transform: scale(1.05);
 }
 
 button:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 /* Results section styles */
 #results {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 6px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
 }
-
-
+#allMessages {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
 
 #results div {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
-#encryptedText, #decryptedText {
-    font-family: 'Courier New', Courier, monospace;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-
-#decryptedSection {
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
+#encryptedText,
+#decryptedText {
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* Message List styles */
 #messagesList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 #messagesList li {
-    background-color: #fff;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: slideDownMessage 0.5s ease;
-    transition: transform 0.3s ease;
+  word-wrap: break-word; /* Ensure the text wraps to a new line */
+  margin-bottom: 1em; /* Add some space between messages */
+  padding: 1em; /* Add padding inside each message box */
+  border: 1px solid #ddd; /* Add a border around each message box */
+  border-radius: 5px; /* Add some rounding to the corners */
+  background-color: #f9f9f9; /* Light background color for message boxes */
+  max-width: 100%; /* Ensure the message box takes full width of the container */
+}
+
+#messagesList li {
+  background-color: #fff;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideDownMessage 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 #messagesList .message-header {
-    font-weight: bold;
-    color: #DA1710;
-    margin-bottom: 5px;
+  font-weight: bold;
+  color: #da1710;
+  margin-bottom: 5px;
 }
 
 #messagesList .message-content {
-    font-family: 'Courier New', Courier, monospace;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 #messagesList .message-content.encrypted {
-    color: #555;
+  color: #555;
 }
 
 #messagesList .message-content.decrypted {
-    color: #333;
+  color: #333;
 }
 
 /* Slide-down animation */
 @keyframes slideDownMessage {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Animations */
 @keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
