@@ -1,9 +1,9 @@
 # Project Setup Guide
 
 ## Requirements
-- Visual Studio Code (or another editor)
+- Visual Studio Code (Not required but reccomended)
 - Python
-- pip (should come with Python)
+- pip 
 
 ## Clone the Repository
 Clone this repository by downloading it directly or using VS Code:
@@ -13,8 +13,7 @@ Clone this repository by downloading it directly or using VS Code:
 Open the terminal in VS Code and install the following packages:
 
 ```sh
-pip install django
-pip install djangorestframework
+pip install django djangorestframework
 ```
 
 ## Run the Server
